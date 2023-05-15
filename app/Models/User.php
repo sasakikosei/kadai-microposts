@@ -51,4 +51,14 @@ class User extends Authenticatable
     {
         $this->loadCount('microposts');
     }
+    public function followings()
+    {
+        
+        
+    }
+    
+    public function followers()
+    {
+        
+    }
 }
