@@ -6,6 +6,8 @@
     <li class="divider lg:hidden"></li>
     {{-- ログアウトへのリンク --}}
     <li><a class="link link-hover" href="#" onclick="event.preventDefault();this.closest('form').submit();">Logout</a></li>
+    {{-- お気に入りページへのリンク --}}
+    <li><a class="link link-hover" href="{{ route('users.favorites',Auth::user()->id)}}">Favorites</a></li>
 @else
     {{-- ユーザ登録ページへのリンク --}}
     <li><a class="link link-hover" href="{{ route('register') }}">Signup</a></li>

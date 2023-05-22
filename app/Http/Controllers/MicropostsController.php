@@ -14,12 +14,12 @@ class MicropostsController extends Controller
             $user = \Auth::user();
             // ユーザとフォロー中ユーザの投稿の一覧を作成日時の降順で取得
             $microposts = $user->feed_microposts()->orderBy('created_at', 'desc')->paginate(10);
-            // ユーザの投稿の一覧を作成日時の降順で取得
-            // （後のChapterで他ユーザの投稿も取得するように変更しますが、現時点ではこのユーザの投稿のみ取得します）
-            $microposts = $user->microposts()->orderBy('created_at','desc')->paginate(10);
+            
+            
+            
             $data =[
                 'user' => $user,
-                'microposts' => $microposts
+                'microposts' => $microposts,
             ];
         }
         // dashboardビューでそれらを表示
@@ -65,5 +65,10 @@ class MicropostsController extends Controller
             'user' => $user,
             'microposts'=> $microposts
             ]);
+    }
+    
+    public function  favorite_users($id)
+    {
+        return $this->belongsToMany(User::class,'user_favorite','user_id','microposts_id')->withTimestamps();
     }
 }

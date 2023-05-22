@@ -1,0 +1,6 @@
+DB_CONNECTION=pgsql
+DB_HOST=db.jfsfchryogvxyffmsfbn.supabase.co
+DB_PORT=5432
+DB_DATABASE=postgres
+DB_USERNAME=postgres
+DB_PASSWORD=HRlltzoEg5UTyOTX

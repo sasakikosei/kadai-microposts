@@ -1,0 +1,33 @@
+# fly.toml app configuration file generated for broken-firefly-9105 on 2023-05-17T17:29:15Z
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "broken-firefly-9105"
+primary_region = "nrt"
+
+[build]
+  [build.args]
+    NODE_VERSION = "18"
+    PHP_VERSION = "8.1"
+
+[env]
+  APP_ENV = "production"
+  LOG_CHANNEL = "stderr"
+  LOG_LEVEL = "info"
+  LOG_STDERR_FORMATTER = "Monolog\\Formatter\\JsonFormatter"
+  #APP_URL = ""
+  #APP_NAME = "Laravel"
+  #APP_DEBUG = true
+  #DB_CONNECTION = "pgsql"
+  #DB_HOST = "db.jfsfchryogvxyffmsfbn.supabase.co"
+  #DB_PORT = 5432
+  #DB_DATABASE = "postgres"
+  #DB_USERNAME = "postgres"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
