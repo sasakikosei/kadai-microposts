@@ -18,16 +18,6 @@
                             <p class="mb-0">{!! nl2br(e($favorite->content)) !!}</p>
                         </div>
                 <div>
-                            @if (Auth::id() == $favorite->user_id)
-                                {{-- 投稿削除ボタンのフォーム --}}
-                            <div class="flex">
-                                <form method="POST" action="{{ route('microposts.destroy', $favorite->id) }}">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-error btn-sm normal-case" 
-                                        onclick="return confirm('Delete id = {{ $favorite->id }} ?')">Delete</button>
-                                </form>
-                            @endif
                             @if (Auth::user()->is_favorite($favorite->id))
         
                               <form method="POST" action="{{ route('favorites.unfavorite', $favorite->id) }}">
